@@ -3,7 +3,7 @@ package org.Backend.Entity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class User {
+    public class User {
     private String name;
     private List<Account> balance;
 
