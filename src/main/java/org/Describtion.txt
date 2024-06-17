@@ -1,0 +1,72 @@
+BackEnd:
+    entity:
+        User:
+            String name
+            List<Account> balance
+
+        Account:
+        Long accountId:
+        String accountName;
+        Double totalAmount;
+
+        Transaction:
+        TransactionType type;
+        Long transactionNumber;
+        Date date;
+        Double amount;
+        Long accountId;
+        List<Category> category;
+        String Comment;
+
+
+        Category Enum
+
+        TransactionType Enum дoxon pacxoд и Tpaнзakuma
+
+
+    Repository:
+
+        TransactionRepositoryInterface;
+        add
+        delite
+        findByid
+        findByDate
+        findByType
+        findByCategory
+
+        TransactionRepository:
+        Map<Long, Transaction>
+        printBalance - Double
+        addNewAccount - (Balance 0) String accountName:
+        deliteAccount - check if balance + or 0 void
+        transfer - (Account from, Account to, Double amount) Double toSum
+        findByid
+        findByDate
+        findByType
+        findByCategory
+
+
+    DTO
+        CreateTransactionWithComment
+                TransactionType type;
+                Double amount;
+                List<Category> category;
+                String Comment;
+
+        SearchTransaction
+                TransactionType type;
+                Double amount;
+                List<Category> category;
+
+    ClientResponse when search null
+
+    serviceExpenses;
+       TransferRepository
+       enterValidation
+
+        validation:
+        наличие данных
+        сумма не 0
+
+    userMeny
+
