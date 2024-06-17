@@ -12,7 +12,7 @@ BackEnd:
         Transaction:
         TransactionType type;
         Long transactionNumber;
-        Date date;
+        Local date;
         Double amount;
         Long accountId;
         List<Category> category;
@@ -21,15 +21,15 @@ BackEnd:
 
         Category Enum
 
-        TransactionType Enum дoxon pacxoд и Tpaнзakuma
+        TransactionType Enum дoxoд pacxoд и Tpaнзaция
 
 
     Repository:
 
         TransactionRepositoryInterface;
         add
-        delite
-        findByid
+        delete
+        findById
         findByDate
         findByType
         findByCategory
@@ -38,9 +38,9 @@ BackEnd:
         Map<Long, Transaction>
         printBalance - Double
         addNewAccount - (Balance 0) String accountName:
-        deliteAccount - check if balance + or 0 void
+        DeleteAccount - check if balance + or 0 void
         transfer - (Account from, Account to, Double amount) Double toSum
-        findByid
+        findById
         findByDate
         findByType
         findByCategory
@@ -64,9 +64,9 @@ BackEnd:
        TransferRepository
        enterValidation
 
-        validation:
+        Validation:
         наличие данных
         сумма не 0
 
-    userMeny
+    userMenu
 
