@@ -1,17 +1,19 @@
 package org.Backend.Entity;
 
 public class Account {
-    private Long accountId;
+    private Integer accountId;
     private String accountName;
     private Double totalAmount;
 
-    public Account(Long accountId, String accountName, Double totalAmount) {
+
+    public Account(Integer accountId, String accountName, Double totalAmount, Double withdraw, Double deposit) {
         this.accountId = accountId;
         this.accountName = accountName;
         this.totalAmount = totalAmount;
+
     }
 
-    public Long getAccountId() {
+    public Integer getAccountId() {
         return accountId;
     }
 
@@ -30,5 +32,9 @@ public class Account {
                 ", accountName='" + accountName + '\'' +
                 ", totalAmount=" + totalAmount +
                 '}';
+    }
+
+    public void changAmount(Double amount){
+        totalAmount = totalAmount + amount;
     }
 }
