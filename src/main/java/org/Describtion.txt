@@ -47,14 +47,22 @@ BackEnd:
         findByCategory
 
 
-    DTO
-        CreateTransactionWithComment
+    DTO:
+    1. Dto User:
+    Name
+    Password
+    2
+    AccountDto:
+            String accountName;
+            Double totalAmount;
+
+    3    CreateTransactionWithComment
                 TransactionType type;
                 Double amount;
                 List<Category> category;
                 String Comment;
 
-        SearchTransaction
+    4    SearchTransaction
                 TransactionType type;
                 Double amount;
                 List<Category> category;
