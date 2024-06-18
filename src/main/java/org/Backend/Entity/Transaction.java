@@ -7,10 +7,10 @@ public class Transaction {
     private TransactionType type;
     private Long transactionNumber;
     private LocalDate date;
-    private Double amount;
+    private final Double amount;
     private Long accountID;
-    private List<Category> categories;
-    private String comment;
+    private final List<Category> categories;
+    private final String comment;
 
     public Transaction(TransactionType type, Double amount, List<Category> categories, String comment) {
         this.type = type;

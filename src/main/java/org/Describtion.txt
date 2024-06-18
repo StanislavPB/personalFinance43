@@ -2,6 +2,7 @@ BackEnd:
     entity:
         User:
             String name
+            String password
             List<Account> balance
 
         Account:
