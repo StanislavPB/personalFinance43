@@ -14,8 +14,7 @@ import java.util.stream.Collectors;
 public class TransactionRepository implements TransactionRepositoryInterface {
 
     private Map<Long, Transaction> transactions = new HashMap<>();
-    private Map<Long, Account> accounts = new HashMap<>();
-    private Long transactionCounter = 0L;
+
 
 
     @Override
