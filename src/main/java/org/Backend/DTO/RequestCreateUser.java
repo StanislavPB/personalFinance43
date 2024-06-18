@@ -1,4 +1,4 @@
-package org.Backend.Entity.DTO;
+package org.Backend.DTO;
 
 public class RequestCreateUser {
     private String name;
