@@ -1,6 +1,7 @@
 package org.Backend.Entity;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Transaction {
@@ -12,10 +13,10 @@ public class Transaction {
     private final List<Category> categories;
     private final String comment;
 
-    public Transaction(TransactionType type, Double amount, List<Category> categories, String comment) {
+    public Transaction(TransactionType type, Double amount, String comment) {
         this.type = type;
         this.amount = amount;
-        this.categories = categories;
+        this.categories = new ArrayList<>();
         this.comment = comment;
     }
 
