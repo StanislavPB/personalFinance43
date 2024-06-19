@@ -50,6 +50,7 @@ public class Validation {
         if (requestCreateTransaction.getAmount().isNaN()) errors.add("Total amount must be number with decimal \n");
         if (requestCreateTransaction.getAmount() != 0) errors.add("Total amount must not be 0 \n");
 
+
         if (errors.isEmpty()) {
             return true;
         } else {
