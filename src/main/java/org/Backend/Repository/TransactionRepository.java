@@ -1,5 +1,6 @@
 package org.Backend.Repository;
 
+import org.Backend.DTO.CreateTransactionWithComment;
 import org.Backend.Entity.Account;
 import org.Backend.Entity.Category;
 import org.Backend.Entity.Transaction;
@@ -14,12 +15,14 @@ import java.util.stream.Collectors;
 public class TransactionRepository implements TransactionRepositoryInterface {
 
     private Map<Long, Transaction> transactions = new HashMap<>();
-
+    private Long counter = 0l;
 
 
     @Override
     public void addTransaction(Transaction transaction) {
+        transaction.setTransactionNumber(++counter);
         transactions.put(transaction.getTransactionNumber(),transaction);
+        counter ++;
 
     }
 
