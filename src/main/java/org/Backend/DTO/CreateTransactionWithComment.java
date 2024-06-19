@@ -4,14 +4,13 @@ import org.Backend.Entity.Category;
 import org.Backend.Entity.TransactionType;
 
 import java.util.List;
-
-public class CreateTransaction { public class CreateTransactionWithComment {
+public class CreateTransactionWithComment {
     private TransactionType type;
     private Double amount;
-    private List<Category> category;
+    private Category category;
     private String comments;
 
-    public CreateTransactionWithComment(TransactionType type, Double amount, List<Category> category, String comment) {
+    public CreateTransactionWithComment(TransactionType type, Double amount, Category category, String comment) {
         this.type = type;
         this.amount = amount;
         this.category = category;
@@ -27,7 +26,7 @@ public class CreateTransaction { public class CreateTransactionWithComment {
         return amount;
     }
 
-    public List<Category> getCategory() {
+    public Category getCategory() {
         return category;
     }
 
@@ -46,7 +45,7 @@ public class CreateTransaction { public class CreateTransactionWithComment {
     }
 
 }
-}
+
 
 
 

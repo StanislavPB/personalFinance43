@@ -1,7 +1,8 @@
 package org.Backend.Service.Validation;
 
 import org.Backend.DTO.AccountDTO;
-import org.Backend.DTO.CreateTransaction;
+
+import org.Backend.DTO.CreateTransactionWithComment;
 import org.Backend.DTO.RequestCreateUser;
 
 import java.util.ArrayList;
@@ -42,10 +43,10 @@ public class Validation {
             throw new ValidationException(errors.toString());
         }
     }
-    public boolean checkCreateTransaction(CreateTransaction.CreateTransactionWithComment requestCreateTransaction){
+    public boolean checkCreateTransaction(CreateTransactionWithComment requestCreateTransaction){
         List<String> errors = new ArrayList<>();
         if (requestCreateTransaction.getType() != null) errors.add("Type must not be null \n");
-        if (requestCreateTransaction.getCategory().isEmpty()) errors.add("Category must be chosen \n");
+        if (requestCreateTransaction.getCategory() !=null) errors.add("Category must be chosen \n");
         if (requestCreateTransaction.getAmount().isNaN()) errors.add("Total amount must be number with decimal \n");
         if (requestCreateTransaction.getAmount() != 0) errors.add("Total amount must not be 0 \n");
 

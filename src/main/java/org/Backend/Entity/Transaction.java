@@ -13,7 +13,7 @@ public class Transaction {
     private final List<Category> categories;
     private final String comment;
 
-    public Transaction(TransactionType type, Double amount, String comment) {
+    public Transaction(TransactionType type, Double amount, Category category, String comment) {
         this.type = type;
         this.amount = amount;
         this.categories = new ArrayList<>();
