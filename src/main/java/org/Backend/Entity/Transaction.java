@@ -48,6 +48,18 @@ public class Transaction {
         return comment;
     }
 
+    public void setTransactionNumber(Long transactionNumber) {
+        this.transactionNumber = transactionNumber;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public void setAccountID(Long accountID) {
+        this.accountID = accountID;
+    }
+
     @Override
     public String toString() {
         return "Transaction{" +

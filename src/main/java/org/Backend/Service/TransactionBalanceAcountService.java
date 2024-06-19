@@ -13,14 +13,18 @@ import static org.Backend.Entity.TransactionType.*;
 
 public class TransactionBalanceAcountService {
 
-    private final TransactionRepository transactionRepository;
-    private final AccountRepository accountRepository;
-    private final Validation validation;
+    private  TransactionRepository transactionRepository;
+    private  AccountRepository accountRepository;
+    private  Validation validation;
 
     public TransactionBalanceAcountService(TransactionRepository transactionRepository, AccountRepository accountRepository, Validation validation) {
         this.transactionRepository = transactionRepository;
         this.accountRepository = accountRepository;
         this.validation = validation;
+    }
+
+    public TransactionBalanceAcountService() {
+
     }
 
     public ClientResponse<Transaction> add(CreateTransactionWithComment transactionRequest){
@@ -42,15 +46,14 @@ private Double updateAcount (Integer acountId,Transaction transaction) {
     Account account = accountRepository.findById(acountId);
     Double amount = account.getTotalAmount();
     if (transaction.getType() == DEPOSIT) {
-        Double acountBalance = amount + transaction.getAmount();
-        amount = acountBalance;
+         amount =+ transaction.getAmount();
+
     }
 
     if (transaction.getType() == WITHDRAWAL) {
         if (amount >= transaction.getAmount()) {
+            amount =- transaction.getAmount();
 
-            Double acountBalance = amount - transaction.getAmount();
-            amount = acountBalance;
         }else {
             System.out.println("Не достаточно средств на счету");
         }
@@ -59,8 +62,17 @@ private Double updateAcount (Integer acountId,Transaction transaction) {
     return amount;
     }
     private void transferAccount(Integer fromAccountID, Integer toAccountID, Double amount) {
-       accountRepository.transfer();
+        accountRepository.transfer(fromAccountID,toAccountID,amount);
+
+   }
+    public Account findById(Integer accountId) {
+        Account accountFoundet = null;
+        if (accountId != null) {
+            accountFoundet = accountRepository.findById(accountId);
+        }
+        return accountFoundet;
     }
+
 }
 
 
