@@ -24,7 +24,7 @@ public class Transaction {
         return type;
     }
 
-    public Long getTransactionNumber() {
+    public int getTransactionNumber() {
         return transactionNumber;
     }
 
