@@ -6,7 +6,7 @@ import java.util.List;
 
 interface AccountRepositoryInterface {
 
-    Account addNewAccount(Integer accountID, String accountName);
+    Integer addNewAccount(Integer accountID, String accountName, double total);
     void deleteAccount(Integer accountId);
     void transfer(Integer fromAccountID, Integer toAccountID, Double amount);
     List<Account> findAll();

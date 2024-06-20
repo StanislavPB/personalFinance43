@@ -4,10 +4,15 @@ import org.Backend.DTO.ClientResponse;
 
 import org.Backend.DTO.CreateTransactionWithComment;
 import org.Backend.Entity.Account;
+import org.Backend.Entity.Category;
 import org.Backend.Entity.Transaction;
 import org.Backend.Repository.AccountRepository;
 import org.Backend.Repository.TransactionRepository;
 import org.Backend.Service.Validation.Validation;
+
+import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.Backend.Entity.TransactionType.*;
 
@@ -71,6 +76,12 @@ private Double updateAcount (Integer acountId,Transaction transaction) {
             accountFoundet = accountRepository.findById(accountId);
         }
         return accountFoundet;
+    }
+    public List<Transaction> getTransactions(LocalDate startDate, LocalDate endDate, Category category) {
+        return getTransactions(startDate, endDate, category).stream()
+                .filter(t -> t.getDate().isAfter(startDate) && t.getDate().isBefore(endDate))
+                .filter(t -> category == null || t.getCategories().equals(category))
+                .collect(Collectors.toList());
     }
 
 }
