@@ -20,7 +20,9 @@ public class TransactionRepository implements TransactionRepositoryInterface {
 
     @Override
     public void addTransaction(Transaction transaction) {
+        LocalDate today = LocalDate.now();
         transaction.setTransactionNumber(++counter);
+        transaction.setDate(today);
         transactions.put(transaction.getTransactionNumber(),transaction);
         counter ++;
 
