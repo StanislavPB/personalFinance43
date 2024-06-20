@@ -4,13 +4,26 @@ import org.Backend.DTO.AccountDTO;
 
 import org.Backend.DTO.CreateTransactionWithComment;
 import org.Backend.DTO.RequestCreateUser;
+import org.Backend.Entity.User;
+import org.Backend.Repository.UserRepository;
 import org.Backend.Service.TransactionBalanceAcountService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 public class Validation {
+
+    public  boolean isPasswordCorrect(String userName, String password) { // entered from scanner
+        UserRepository users = new UserRepository();
+        boolean iscorrect = false;
+        User check = new User(userName, password);
+        if (users.contains(check)){
+            iscorrect = true;
+        }
+        return iscorrect;
+    }
     TransactionBalanceAcountService service = new TransactionBalanceAcountService();
 
     public boolean checkRequestCreateUser(RequestCreateUser requestCreateUser){

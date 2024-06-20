@@ -12,9 +12,9 @@ public class AccountRepository implements AccountRepositoryInterface{
 
 
     @Override
-    public Account addNewAccount(Integer accountID, String accountName) {
-        accounts.add(addNewAccount(accountID,accountName));
-        return null;
+    public Integer addNewAccount(Integer accountID, String accountName, double total) {
+        accounts.add(new Account(accountID,accountName, 0.0));
+        return accountID;
 
     }
 
@@ -47,7 +47,7 @@ public class AccountRepository implements AccountRepositoryInterface{
 
     @Override
     public List<Account> findAll() {
-        return new ArrayList<>(accounts);
+        return accounts;
     }
 
     @Override

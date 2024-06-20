@@ -6,7 +6,7 @@ public class Account {
     private Double totalAmount;
 
 
-    public Account(Integer accountId, String accountName, Double totalAmount, Double withdraw, Double deposit) {
+    public Account(Integer accountId, String accountName, Double totalAmount) {
         this.accountId = accountId;
         this.accountName = accountName;
         this.totalAmount = totalAmount;
