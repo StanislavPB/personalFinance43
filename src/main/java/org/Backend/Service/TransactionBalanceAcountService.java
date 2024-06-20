@@ -29,7 +29,6 @@ public class TransactionBalanceAcountService {
     }
 
     public TransactionBalanceAcountService() {
-
     }
 
     public ClientResponse<Transaction> add(CreateTransactionWithComment transactionRequest){
@@ -77,13 +76,21 @@ private Double updateAcount (Integer acountId,Transaction transaction) {
         }
         return accountFoundet;
     }
-    public List<Transaction> getTransactions(LocalDate startDate, LocalDate endDate, Category category) {
-        return getTransactions(startDate, endDate, category).stream()
-                .filter(t -> t.getDate().isAfter(startDate) && t.getDate().isBefore(endDate))
-                .filter(t -> category == null || t.getCategories().equals(category))
-                .collect(Collectors.toList());
+//    public ClientResponse<List<Transaction>> getTransactionsByDate(LocalDate startDate, LocalDate endDate, Category category) {
+//        List<Transaction> transactions = transactionRepository.findByDate()
+//        return getTransactions(startDate, endDate, category).stream()
+//                .filter(t -> t.getDate().isAfter(startDate) && t.getDate().isBefore(endDate))
+//                .filter(t -> category == null || t.getCategories().equals(category))
+//                .collect(Collectors.toList());
+//    }
+    public ClientResponse<List<Transaction>> findByDateRange(LocalDate startDate, LocalDate endDate) {
+        List<Transaction> transactions = transactionRepository.findByDate(startDate, endDate);
+        return new ClientResponse<>(200, transactions, "Список транзакций за указанный период");
     }
-
+    public ClientResponse<List<Transaction>> findByDate(LocalDate date) {
+        List<Transaction> transactions = transactionRepository.findByDate(date);
+        return new ClientResponse<>(200, transactions, "Список транзакций за указанный период");
+    }
 }
 
 
