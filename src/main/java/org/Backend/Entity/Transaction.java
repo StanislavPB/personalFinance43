@@ -6,17 +6,17 @@ import java.util.List;
 
 public class Transaction {
     private TransactionType type;
-    private Long transactionNumber;
+    private Integer transactionNumber;
     private LocalDate date;
-    private final Double amount;
-    private Long accountID;
-    private final List<Category> categories;
-    private final String comment;
+    private Double amount;
+    private Integer accountID;
+    private Category category;
+    private String comment;
 
     public Transaction(TransactionType type, Double amount, Category category, String comment) {
         this.type = type;
         this.amount = amount;
-        this.categories = new ArrayList<>();
+        this.category = category;
         this.comment = comment;
     }
 
@@ -24,7 +24,7 @@ public class Transaction {
         return type;
     }
 
-    public int getTransactionNumber() {
+    public Integer getTransactionNumber() {
         return transactionNumber;
     }
 
@@ -36,19 +36,19 @@ public class Transaction {
         return amount;
     }
 
-    public Long getAccountID() {
+    public Integer getAccountID() {
         return accountID;
     }
 
-    public List<Category> getCategories() {
-        return categories;
+    public Category getCategories() {
+        return category;
     }
 
     public String getComment() {
         return comment;
     }
 
-    public void setTransactionNumber(Long transactionNumber) {
+    public void setTransactionNumber(Integer transactionNumber) {
         this.transactionNumber = transactionNumber;
     }
 
@@ -56,7 +56,7 @@ public class Transaction {
         this.date = date;
     }
 
-    public void setAccountID(Long accountID) {
+    public void setAccountID(Integer accountID) {
         this.accountID = accountID;
     }
 

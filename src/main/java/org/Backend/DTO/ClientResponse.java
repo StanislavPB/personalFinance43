@@ -2,9 +2,6 @@ package org.Backend.DTO;
 
 public class ClientResponse <T>{
     private int responseCode;
-    // 200 - Ok
-    // 400 - error
-
     private T responseInfo;
 
     private String message;

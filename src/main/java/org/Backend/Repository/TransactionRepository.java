@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 public class TransactionRepository implements TransactionRepositoryInterface {
 
     private List<Transaction> transactions = new ArrayList<>();
-    private Long counter = 0l;
+    private Integer counter = 0;
 
 
     @Override
@@ -29,13 +29,13 @@ public class TransactionRepository implements TransactionRepositoryInterface {
     }
 
     @Override
-    public void deleteTransaction(Long transactionNumber) {
-        transactions.remove(transactionNumber);
+    public void deleteTransaction(Integer transactionNumber) {
+        transactions.remove(transactions.get(transactionNumber));
     }
 
     @Override
-    public Transaction findById(Long transactionNumber) {
-        return transactions.get(Math.toIntExact(transactionNumber));
+    public Transaction findById(Integer transactionNumber) {
+        return transactions.get(transactionNumber);
     }
 
     @Override
@@ -44,7 +44,7 @@ public class TransactionRepository implements TransactionRepositoryInterface {
                 .filter(transaction -> transaction.getDate().equals(date))
                 .collect(Collectors.toList());
     }
-    public List<Transaction> findByDate(LocalDate startDate,LocalDate endDate) {
+    public List<Transaction> findByDates(LocalDate startDate,LocalDate endDate) {
         return transactions.stream()
                 .filter(transaction -> !transaction.getDate().isBefore(startDate)  && !transaction.getDate().isAfter(endDate))
                 .collect(Collectors.toList());

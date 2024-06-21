@@ -21,6 +21,14 @@ public class CreateTransactionWithComment {
         this.comments = comments;
     }
 
+    public CreateTransactionWithComment(TransactionType type, Integer fromAccountID, Double amount, Category category, String comments) {
+        this.type = type;
+        this.fromAccountID = fromAccountID;
+        this.amount = amount;
+        this.category = category;
+        this.comments = comments;
+    }
+
     @Override
     public String toString() {
         return "CreateTransactionWithComment{" +

@@ -61,13 +61,12 @@ public class Validation {
     }
     public boolean checkCreateTransaction(CreateTransactionWithComment requestCreateTransaction){
         List<String> errors = new ArrayList<>();
-        if (requestCreateTransaction.getType() != null) errors.add("Type must not be null \n");
-        if (requestCreateTransaction.getCategory() !=null) errors.add("Category must be chosen \n");
+        if (requestCreateTransaction.getType() == null) errors.add("Type must not be null \n");
+        if (requestCreateTransaction.getCategory() ==null) errors.add("Category must be chosen \n");
         if (requestCreateTransaction.getAmount().isNaN()) errors.add("Total amount must be number with decimal \n");
-        if (requestCreateTransaction.getAmount() != 0) errors.add("Total amount must not be 0 \n");
+        if (requestCreateTransaction.getAmount() == 0) errors.add("Total amount must not be 0 \n");
         if(service.findById(requestCreateTransaction.getFromAccountID()).getTotalAmount() < requestCreateTransaction.getAmount())
             errors.add("Transaction not possible");
-
 
         if (errors.isEmpty()) {
             return true;

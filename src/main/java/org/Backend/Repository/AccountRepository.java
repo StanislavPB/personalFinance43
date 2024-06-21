@@ -17,12 +17,15 @@ public class AccountRepository implements AccountRepositoryInterface{
         return accountID;
 
     }
+    public void addNewAccount(Account account) {
+        accounts.add(account);
 
+    }
     @Override
     public void deleteAccount(Integer accountId) {
         Account account = accounts.get(accountId);
         if(account != null && account.getTotalAmount()>=0){
-            accounts.remove(accountId);
+            accounts.remove(account);
         } else {
             System.out.println("Cannot delete account with negative balance");
         }

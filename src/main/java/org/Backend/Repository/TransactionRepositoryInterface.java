@@ -10,8 +10,8 @@ import java.util.List;
 public interface TransactionRepositoryInterface {
 
     void addTransaction(Transaction transaction);
-    void deleteTransaction(Long TransactionNumber);
-    Transaction findById(Long transactionNumber);
+    void deleteTransaction(Integer TransactionNumber);
+    Transaction findById(Integer transactionNumber);
     List<Transaction> findByDate(LocalDate date);
     List<Transaction> findByType(TransactionType type);
     List<Transaction> findByCategory(Category category);

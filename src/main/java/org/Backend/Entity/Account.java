@@ -34,7 +34,9 @@ public class Account {
                 '}';
     }
 
-    public void changAmount(Double amount){
+    public double changAmount(double amount){
         totalAmount = totalAmount + amount;
+        return totalAmount;
     }
+
 }
